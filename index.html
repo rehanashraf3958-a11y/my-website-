@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickCart - Home</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background: #fff;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 7%;
+    background: #ff6b35;
+    color: white;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.search {
+    display: flex;
+    width: 45%;
+}
+
+.search input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.search button {
+    padding: 12px 18px;
+    border: none;
+    background: #222;
+    color: white;
+    cursor: pointer;
+}
+
+.cart {
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding: 17px;
+    border-bottom: 1px solid #eee;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #ff6b35;
+}
+
+.hero {
+    margin: 30px auto;
+    width: 90%;
+    min-height: 300px;
+    border-radius: 15px;
+    background: linear-gradient(120deg, #fff0e4, #ffd0b5);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 35px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #f15b2a;
+}
+
+.hero p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    background: #ff6b35;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.hero-image {
+    font-size: 120px;
+}
+
+.categories {
+    width: 90%;
+    margin: 40px auto;
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-size: 27px;
+}
+
+.category-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    padding: 25px 10px;
+    text-align: center;
+    background: #fff5ef;
+    border-radius: 12px;
+    font-size: 17px;
+}
+
+.category-card div {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.products {
+    width: 90%;
+    margin: 45px auto;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.product-img {
+    height: 170px;
+    background: #f6f2ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-info h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.price {
+    color: #f15b2a;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.product button {
+    width: 100%;
+    padding: 10px;
+    background: #ff6b35;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    background: #222;
+    color: white;
+    padding: 25px;
+    margin-top: 50px;
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-wrap: wrap;
+    }
+
+    .search {
+        order: 3;
+        width: 100%;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        padding: 25px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-image {
+        font-size: 65px;
+    }
+
+    .category-list,
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🛍 QuickCart</div>
+
+    <form class="search" onsubmit="searchProducts(event)">
+        <input id="searchInput"
+               type="search"
+               placeholder="Search products...">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="cart">🛒 Cart</div>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#products">Products</a>
+    <a href="#footer">Contact</a>
+</nav>
+
+<section class="hero">
+    <div>
+        <h1>Shop Smart.<br><span>Save More!</span></h1>
+        <p>Discover amazing products at affordable prices.</p>
+        <a href="#products" class="btn">Shop Now →</a>
+    </div>
+
+    <div class="hero-image">🛍️</div>
+</section>
+
+<section class="categories" id="categories">
+    <h2>Shop by Category</h2>
+
+    <div class="category-list">
+        <div class="category-card">
+            <div>👕</div>
+            Fashion
+        </div>
+
+        <div class="category-card">
+            <div>🎧</div>
+            Electronics
+        </div>
+
+        <div class="category-card">
+            <div>🏠</div>
+            Home
+        </div>
+
+        <div class="category-card">
+            <div>💄</div>
+            Beauty
+        </div>
+    </div>
+</section>
+
+<section class="products" id="products">
+    <h2>Popular Products</h2>
+
+    <div class="product-list" id="productList">
+
+        <div class="product">
+            <div class="product-img">🎧</div>
+            <div class="product-info">
+                <h3>Wireless Headphones</h3>
+                <p class="price">Rs 2,499</p>
+                <button onclick="addCart('Wireless Headphones')">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">👜</div>
+            <div class="product-info">
+                <h3>Fashion Handbag</h3>
+                <p class="price">Rs 1,299</p>
+                <button onclick="addCart('Fashion Handbag')">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">⌚</div>
+            <div class="product-info">
+                <h3>Smart Watch</h3>
+                <p class="price">Rs 3,499</p>
+                <button onclick="addCart('Smart Watch')">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="product-img">👟</div>
+            <div class="product-info">
+                <h3>Casual Sneakers</h3>
+                <p class="price">Rs 2,999</p>
+                <button onclick="addCart('Casual Sneakers')">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer id="footer">
+    <h3>QuickCart</h3>
+    <p style="margin-top: 10px;">
+        Your everyday online shopping destination.
+    </p>
+    <p style="margin-top: 10px;">© 2026 QuickCart</p>
+</footer>
+
+<script>
+let cartCount = 0;
+
+function addCart(productName) {
+    cartCount++;
+    document.querySelector(".cart").textContent =
+        "🛒 Cart (" + cartCount + ")";
+
+    alert(productName + " added to cart!");
+}
+
+function searchProducts(event) {
+    event.preventDefault();
+
+    const query = document.getElementById("searchInput")
+        .value.toLowerCase();
+
+    document.querySelectorAll(".product").forEach(product => {
+        const name = product.querySelector("h3")
+            .textContent.toLowerCase();
+
+        product.style.display = name.includes(query)
+            ? ""
+            : "none";
+    });
+}
+</script>
+
+</body>
+</html>
